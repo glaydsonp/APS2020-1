@@ -1,0 +1,76 @@
+// referencia: https://www.beyondjava.net/customizing-bootstrap-4-angular
+
+// *----------------------------------*\
+//  Bootstrap SETTINGS / TOOLS
+// *----------------------------------*/
+
+@import "_bootstrap-1-2-settings-tools.scss";
+
+// *----------------------------------*\
+//  Settings
+// *----------------------------------*/
+
+@import '1-settings/_color.scss';
+@import '1-settings/_global.scss';
+@import '1-settings/_spaces.scss';
+@import '1-settings/_type.scss';
+
+// *----------------------------------*\
+//  Tools
+// *----------------------------------*/
+
+@import '2-tools/_functions.scss';
+@import '2-tools/_mixins.scss';
+
+// *----------------------------------*\
+//  Bootstrap Generic / Elements
+// *----------------------------------*/
+
+@import '_bootstrap-3-4-generic-elements.scss';
+
+// *----------------------------------*\
+//  Generic
+// *----------------------------------*/
+
+@import '3-generic/_normalize.scss';
+
+// *----------------------------------*\
+//  Elements
+// *----------------------------------*/
+
+@import '4-elements/_links.scss';
+@import '4-elements/_page.scss';
+
+// *----------------------------------*\
+//  Objects
+// *----------------------------------*/
+
+@import '5-objects/_animate.css.scss';
+
+// *----------------------------------*\
+//  Components
+// *----------------------------------*/
+
+@import '6-components/_inputs.scss';
+
+// *----------------------------------*\
+//  Bootstrap OBJECTS / COMPONENTS
+// *----------------------------------*/
+
+@import '_bootstrap-5-6-objects-components.scss';
+
+// *----------------------------------*\
+//  Trumps
+// *----------------------------------*/
+
+// nada aqui
+
+// *----------------------------------*\
+//  Bootstrap TRUMPS
+// *----------------------------------*/
+
+@import '_bootstrap-7-trumps.scss';
+
+
+// TO-DO
+// PERSONALIZED GLOBAL STYLES COMES HERE

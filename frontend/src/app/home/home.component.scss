@@ -1,0 +1,84 @@
+@import 'src/scss/angular-components.scss';
+
+.carousel-inner {
+    position: relative;
+    height: 400px;
+
+    .text-block {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        p {
+            &:first-child {
+                font-size: 50px;
+                color: $c-white;
+                margin-bottom: $big-spacing-unit;
+            }
+            &:nth-child(2) {
+                font-size: 70px;
+                color: $c-font-main-color;
+                font-weight: $f-font-weight-extrabold;
+                margin-bottom: $big-spacing-unit;
+            }
+        }
+
+        button {
+            background-color: $c-main-black;
+            padding: 12px $second-spacing-unit;
+            color: $c-white;
+            font-weight: $f-font-weight-semibold;
+            text-transform: uppercase;
+            margin-top: $second-spacing-unit;
+
+            &:hover {
+                color: $c-main-color;
+            }
+        }
+    }
+}
+
+.carousel-indicators {
+    > li {
+        border-radius: 50%;
+        width: 12px;
+        height: 12px;
+        margin-right: $base-spacing-unit;
+    }
+
+    .active {
+        background-color: $c-main-color;
+        padding: 4px;
+        margin-top: -4px;
+    }
+}
+
+.shortcuts {
+    background-color: $c-lighter-gray;
+    height: 180px;
+    position: relative;
+
+    p {
+        font-weight: $f-font-weight-bold;
+        text-transform: uppercase;
+        padding: $second-spacing-unit $big-spacing-unit $second-spacing-unit $bigger-spacing-unit;
+    }
+
+    i {
+        position: absolute;
+        top: 73px;
+        font-size: 40px;
+
+        &:first-of-type {
+            left: 50px;
+        }
+
+        &:nth-of-type(2) {
+            right: 50px;
+        }
+    }
+
+    // .items {
+
+    // }
+}

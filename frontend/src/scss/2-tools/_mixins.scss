@@ -1,0 +1,46 @@
+// *----------------------------------*\
+// Tools > Mixins
+// *----------------------------------*/
+
+// Apply ‘attention’ styles in one go.
+// https://goo.gl/LFx8on
+//
+// Example use:
+//
+// @include attention() {
+//   text-decoration: underline;
+// }
+@mixin attention() {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+
+// Mixin to drop micro clearfix into a selector.
+//
+// // Example use:
+//
+// .class {
+//   @include clearfix();
+// }
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin box-shadow-focus() {
+  -webkit-box-shadow: 0 0 10px 0 darken($c-main-color, 10);
+  -moz-box-shadow: 0 0 10px 0 darken($c-main-color, 10);
+  box-shadow: 0 0 10px 0 darken($c-main-color, 10);
+}
+
+@mixin box-shadow-floating-containers() {
+  -webkit-box-shadow: 5px 5px 20px -5px rgba(0,0,0,0.15);
+  -moz-box-shadow: 5px 5px 20px -5px rgba(0,0,0,0.15);
+  box-shadow: 5px 5px 20px -5px rgba(0,0,0,0.15);
+}

@@ -1,0 +1,20 @@
+/*------------------------------------*\
+  Components > Inputs
+\*------------------------------------*/
+
+.c-input {
+  width: 100%;
+  padding: $medium-spacing-unit $base-spacing-unit;
+  transition: $global-transition;
+  border: 0;
+  outline: none;
+  background-color: $c-white;
+  appearance: none;
+  border-radius: $global-radius-inputs;
+  font-family: $f-font-sans-serif;
+
+   @include attention() {
+    @include box-shadow-focus;
+   }
+
+}

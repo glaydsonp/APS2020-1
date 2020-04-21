@@ -1,0 +1,12 @@
+// PROXY EXAMPLE TO MICROSERVICES ARCHITECTURE
+{
+  "/BelenusFixadores/api/*": {
+    "target": "http://belenus.performait.net/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": "http://belenus.performait.net/BelenusFixadores/api/"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+// *----------------------------------*\
+//  Settings > Type
+// *----------------------------------*/
+
+// !!! DEPRECATED !!!
+// !!! Use o padrão do bootstrap !!!
+
+$f-font-sans-serif: 'Work Sans', sans-serif;
+
+$f-font-size-xlarge:  18px;
+$f-font-size-large:   16px;
+$f-font-size-base:    14px;
+$f-font-size-medium:  12px;
+$f-font-size-small:   10px;
+$f-font-size-tiny:    8px;
+
+$f-font-weight-light:     300;
+$f-font-weight-regular:   400;
+$f-font-weight-medium:    500;
+$f-font-weight-semibold:  600;
+$f-font-weight-bold:      700;
+$f-font-weight-extrabold: 800;
+$f-font-weight-black:     900;
+
+$l-line-height-base:    round($f-font-size-base    * 1.7);
+$l-line-height-medium:  round($f-font-size-medium  * 1.55);
+$l-line-height-small:   round($f-font-size-small   * 1.55);
+$l-line-height-tiny:    round($f-font-size-tiny    * 1.55);

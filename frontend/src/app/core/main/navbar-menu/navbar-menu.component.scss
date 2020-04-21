@@ -1,1 +1,27 @@
 @import 'src/scss/angular-components.scss';
+
+.menu{
+  height: 10vh;
+  background-color:#0645FF ;
+
+  &-item{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  i{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  span{
+    color:white;
+    &:hover{
+      height: 100%;
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+.material-icons{
+  color: white;
+}

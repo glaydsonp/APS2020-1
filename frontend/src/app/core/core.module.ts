@@ -11,6 +11,8 @@ import { SearchBarComponent } from './main/search-bar/search-bar.component';
 import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(),
     // NgProgressModule,
     SharedModule,
+    MatToolbarModule
+
   ],
   exports: [
     MainComponent

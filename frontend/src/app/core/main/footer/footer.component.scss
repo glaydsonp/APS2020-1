@@ -1,1 +1,9 @@
 @import "src/scss/angular-components.scss";
+.footer{
+  bottom: 0;
+  height: 5vh;
+  background-color: #032380;
+  p{
+    color: white;
+  }
+}

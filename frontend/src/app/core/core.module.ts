@@ -11,7 +11,7 @@ import { SearchBarComponent } from './main/search-bar/search-bar.component';
 import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatToolbarModule, MatSnackBarModule} from '@angular/material';
 
 
 @NgModule({
@@ -28,11 +28,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     HttpClientModule,
     ToastrModule.forRoot(),
     SharedModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSnackBarModule
 
   ],
   exports: [
-    MainComponent
+    MainComponent,
+    MatSnackBarModule
   ]
 })
 export class CoreModule { }

@@ -14,13 +14,33 @@
 		<div class="animated fadeInDown login-box">
       <div class="login-container">
 
-        <h1>login</h1>
-        <form >
-          <input class="col col-md-12" required type="text" name="login" placeholder="Username" >
-          <input required type="password" name="password" placeholder="Password" >
-          <button type="submit" class="login login-submit">Sign-in</button>
+        <h1>Login</h1>
+
+        <form
+          (ngSubmit)="onSubmit(formDirective)"
+          [formGroup]="form"
+          #formDirective="ngForm"
+          onLoad="setFocus()"
+        >
+          <input class="col col-md-12"
+          required type="text"
+          name="login"
+          placeholder="Username"
+          formControlName="email"
+          >
+
+          <input class="col col-md-12"
+          required type="password"
+          name="password"
+          placeholder="Password"
+          formControlName="password"
+          >
+
+          <button type="submit" class="login login-submit">Entrar</button>
+
         </form>
-          <a href="#"> Forgot password</a>
+        <a href="#"> Esqueci minha senha</a>
+
       </div>
 		</div>
 	</body>

@@ -11,32 +11,53 @@ class UserController {
     }
 
     public async create(req: Request, res: Response): Promise<Response> {
+        const { name, email, phoneNumber, password } = req.body
+
         // checa se o email já existe
-        const checkEmail = await User.find(req.body.email)
-        if (checkEmail) {
-            return res.status(400).json({ message: 'User already exists.' })
+        const checkEmail = await User.find({ email })
+        if (checkEmail && checkEmail.length > 0) {
+            return res.status(400).json({ message: 'Email already exists.' })
         }
 
         // checa se o telefone já existe
-        const checkPhoneNumber = await User.find(req.body.phoneNumber)
-        if (checkPhoneNumber) {
-            return res.status(400).json({ message: 'User already exists.' })
+        const checkPhoneNumber = await User.find({ phoneNumber })
+        if (checkPhoneNumber && checkPhoneNumber.length > 0) {
+            return res.status(400).json({ message: 'Phone number already exists.' })
         }
 
         // pega a senha e converte em hash
-        const { password } = req.body;
         const hash = await bcrypt.hash(password, 8);
 
         // seta o 'role' do usuário
-        req.body.role = 'user';
-
-        // seta a senha para o hash
-        req.body.password = hash;
+        const role = 'user';
 
         // cria o usuário
-        const user = await User.create(req.body);
+        const user = {
+            name,
+            email,
+            phoneNumber,
+            password: hash,
+            role
+        }
 
-        return res.json(user)
+        // persiste no banco
+        const { id } = await User.create(user);
+
+        if (id) {
+            // se persistiu, retorna o usuário
+            return res.json({
+                id,
+                name,
+                email,
+                phoneNumber
+            })
+        } else {
+            // se não persistiu, retorna erro
+            return res.status(400).json({
+                message: 'Error on user create.'
+            })
+        }
+
     }
 }
 

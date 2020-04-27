@@ -1,141 +1,82 @@
-html{
-  overflow: hidden;
-}
+@import "src/scss/angular-components.scss";
 
+.login {
+  &__wrapper {
+    height: 90vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #aafffc;
 
-body
-{
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #AAFFFC;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 85vh;
-}
-
-.login-box{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  width: 450px;
-  height: 450px;
-  background: #363636;
-  padding: 60px 30px;
-  border-radius: 15px;
-  text-align: center;
-  -webkit-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
-  -moz-box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.50);
-
-  .login-container{
-    width: 100%;
-  }
-
-  h1{
-    font-family: 'Roboto', sans-serif;
-    text-transform: uppercase;
-    font-size: 2.5em;
-    font-weight: 500;
-    color: white;
-  }
-
-  input[type="text"],
-  input[type="password"]{
-    width: 75%;
-    margin-bottom: 20px;
-    font-family: 'Roboto', sans-serif;
-    border-radius: 30px;
-    background: transparent;
-    border: none;
-    outline: none;
-    border: 2px solid  white;
-    font-size: 13px;
-    height: 40px;
-    text-align: center;
-    transition: 0.27s;
-    color: white;
-
-    &:focus{
-      width: 80%;
-      border-color:white;
-      font-family: 'Roboto', sans-serif;
+    &-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 450px;
+      height: 450px;
+      background: #363636;
+      padding: 60px 30px;
+      border-radius: 15px;
+      text-align: center;
+      -webkit-box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.75);
+      box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.5);
+      margin-top: -10%;
     }
-    &::placeholder{
-      font-family: 'Roboto', sans-serif;
+
+    &-container {
+      width: 100%;
+    }
+
+    &-title {
+      font-family: "Roboto", sans-serif;
+      text-transform: uppercase;
+      font-size: 2.5em;
+      font-weight: 500;
       color: white;
-    }
-  }
-
-  button[type="submit"]{
-    width: 150px;
-    height: 40px;
-    padding: 10px 0;
-    border-radius: 30px;
-    color: #363636;
-    font-weight: 500;
-    border: 2px solid  white;
-    text-transform: uppercase;
-    cursor: pointer;
-    margin-bottom: 20px;
-    font-family: 'Roboto', sans-serif;
-
-    &:hover{
-      background-color:white;
-      color: black;
-      transition: .2s;
-      font-size: 1.1em;
+      margin-bottom: 30px;
     }
 
-    &:focus{
-      transform: scaleX(1.1);
-    }
-  }
-  a {
-    text-decoration: none;
-    font-size: 13px;
-    color:  white;
-    font-family: 'Roboto', sans-serif;
+    &-form {
+      button {
+        width: 150px;
+        height: 40px;
+        padding: 10px 0;
+        border-radius: 30px;
+        color: #363636;
+        font-weight: 500;
+        border: 2px solid white;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-bottom: 20px;
+        font-family: "Roboto", sans-serif;
 
-    &:hover{
-      font-size: 1.1em;
+        &:hover {
+          background-color: white;
+          color: black;
+          transition: 0.2s;
+          font-size: 1.1em;
+        }
+
+        &:focus {
+          transform: scaleX(1.1);
+        }
+      }
+    }
+
+    &-retrieve-pass {
+      a {
+        text-decoration: none;
+        font-size: 13px;
+        color: white;
+        font-family: "Roboto", sans-serif;
+
+        &:hover {
+          font-size: 1.1em;
+        }
+      }
     }
   }
 }
-
-.wrapper
-{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  min-height: 100%;
-  padding: 20px;
-}
-
-.fadeInDown {
-  -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-
-@-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-  }
-}
-
-

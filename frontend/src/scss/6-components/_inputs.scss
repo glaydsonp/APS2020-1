@@ -3,18 +3,27 @@
 \*------------------------------------*/
 
 .c-input {
-  width: 100%;
-  padding: $medium-spacing-unit $base-spacing-unit;
-  transition: $global-transition;
-  border: 0;
-  outline: none;
-  background-color: $c-white;
-  appearance: none;
-  border-radius: $global-radius-inputs;
+  width: 75%;
+  margin-bottom: 20px;
   font-family: $f-font-sans-serif;
+  border-radius: 30px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid white;
+  font-size: 13px;
+  height: 40px;
+  text-align: center;
+  transition: 0.27s;
+  color: white;
 
-   @include attention() {
-    @include box-shadow-focus;
-   }
-
+  &:focus {
+    width: 80%;
+    border-color: white;
+    font-family: $f-font-sans-serif;
+  }
+  &::placeholder {
+    font-family: $f-font-sans-serif;
+    color: white;
+  }
 }

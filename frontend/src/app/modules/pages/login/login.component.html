@@ -1,49 +1,28 @@
-<!DOCTYPE html>
-<html >
-	<head>
-		<meta charset="UTF-8">
+<!-- <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> -->
+<div class="login__wrapper">
+  <div class="login__wrapper-box animated fadeInDown">
+    <div class="login__wrapper-container">
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+      <div class="login__wrapper-title">Login</div>
 
-		<title>Login</title>
+      <form (ngSubmit)="onSubmit(formDirective)" [formGroup]="form" #formDirective="ngForm" onLoad="setFocus()">
 
-	</head>
+        <div class="login__wrapper-form">
 
-  <body>
+          <input class="c-input" required type="text" name="login" placeholder="Username" formControlName="email">
 
-		<div class="animated fadeInDown login-box">
-      <div class="login-container">
+          <input class="c-input" required type="password" name="password" placeholder="Password"
+            formControlName="password">
 
-        <h1>Login</h1>
+          <button type="submit">Entrar</button>
 
-        <form
-          (ngSubmit)="onSubmit(formDirective)"
-          [formGroup]="form"
-          #formDirective="ngForm"
-          onLoad="setFocus()"
-        >
-          <input class="col col-md-12"
-          required type="text"
-          name="login"
-          placeholder="Username"
-          formControlName="email"
-          >
+        </div>
 
-          <input class="col col-md-12"
-          required type="password"
-          name="password"
-          placeholder="Password"
-          formControlName="password"
-          >
-
-          <button type="submit" class="login login-submit">Entrar</button>
-
-        </form>
+      </form>
+      <div class="login__wrapper-retrieve-pass">
         <a href="#"> Esqueci minha senha</a>
-
       </div>
-		</div>
-	</body>
 
-
-</html>
+    </div>
+  </div>
+</div>

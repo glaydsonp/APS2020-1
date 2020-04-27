@@ -1,16 +1,17 @@
 @import "src/scss/angular-components.scss";
-.footer{
+.footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  position:fixed;
+  position: fixed;
   width: 100%;
   bottom: 0;
   height: 5vh;
+  max-height: 50px;
   background-color: #363636;
-  box-shadow: 1px -8px 3px -4px rgba(0,0,0,0.50);
+  box-shadow: -4px -9px 20px -5px rgba(0, 0, 0, 0.5);
 
-  p{
+  p {
     color: white;
   }
 }

@@ -1,0 +1,25 @@
+@import "src/scss/angular-components.scss";
+
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__loader {
+    margin-right: 2vw;
+  }
+
+  &__message {
+    margin-left: 2vw;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #3f51b1;
+  }
+}

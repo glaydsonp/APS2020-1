@@ -4,6 +4,10 @@ import mongoose from 'mongoose'
 
 import routes from './routes'
 
+import responseMiddleware from './middlewares/Response.middleware'
+
+import database from './utils/database'
+
 class App {
     public express: express.Application
 
@@ -17,26 +21,39 @@ class App {
     private middlewares(): void {
         this.express.use(express.json())
         this.express.use(cors())
+
+        // middlware de tratamento de resposta
+        this.express.use(responseMiddleware)
     }
 
     private database(): void {
-        // mongoose.connect('mongodb://localhost:27017/tsnode', {
-        //     useNewUrlParser: true
-        // })
-
         mongoose
-            .connect('mongodb://localhost:27017/admin', {
+            .connect(`mongodb://${database.mongo.user}:${database.mongo.pass}@${database.mongo.alternativeHost}:27017/${database.mongo.dbName}`, {
                 useUnifiedTopology: true,
                 useNewUrlParser: true,
+                useCreateIndex: true,
                 auth: {
-                    user: 'root',
-                    password: 'MongoDB2019!'
+                    user: database.mongo.user,
+                    password: database.mongo.pass
                 }
             })
             .then(() => console.log('DB Connected!'))
             .catch(err => {
                 console.log(`DB Connection Error: ${err.message}`);
             });
+        // mongoose
+        //     .connect(`${database.mongo.alternativeHost}/${database.mongo.dbName}`, {
+        //         useUnifiedTopology: true,
+        //         useNewUrlParser: true,
+        //         auth: {
+        //             user: database.mongo.user,
+        //             password: database.mongo.pass
+        //         }
+        //     })
+        //     .then(() => console.log('DB Connected!'))
+        //     .catch(err => {
+        //         console.log(`DB Connection Error: ${err.message}`);
+        //     });
     }
 
     private routes(): void {

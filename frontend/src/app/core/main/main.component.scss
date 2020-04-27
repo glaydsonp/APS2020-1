@@ -1,6 +1,16 @@
-.container-box {
-  height: 85%;
-  padding-top: 10vh;
-  padding-bottom:5vh ;
-  overflow: hidden;
+.main {
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+
+  &__container {
+    // height: 85%;
+    // margin-top: 100px;
+    // padding-bottom: 5vh;
+    // overflow: hidden;
+    position: relative;
+    top: 70px;
+  }
 }

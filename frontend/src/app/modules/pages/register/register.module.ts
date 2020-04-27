@@ -13,6 +13,6 @@ import { RegisterRoutingModule } from './register-routing.module';
 
   declarations: [RegisterComponent],
 
-  exports:[RegisterComponent]
+  exports: [RegisterComponent]
 })
 export class RegisterModule { }

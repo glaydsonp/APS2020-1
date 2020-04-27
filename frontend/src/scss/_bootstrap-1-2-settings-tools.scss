@@ -5,3 +5,6 @@
 @import "../../node_modules/bootstrap/scss/_mixins.scss";
 
 // Adicione modificações abaixo
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

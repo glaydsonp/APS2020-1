@@ -1,13 +1,16 @@
 <mat-toolbar class="menu">
 
-  <i class="material-icons">contacts</i>
-  <span class="menu-item">Home</span>
-  <span class="menu-item">Informações</span>
-  <span class="menu-item">Contato</span>
+  <div class="menu__wrapper">
+    <a class="material-icons" [routerLink]="['/']" routerLinkActive="router-link-active">contacts</a>
+    <a class="menu__wrapper-item" [routerLink]="['/']" routerLinkActive="router-link-active">Home</a>
+    <a class="menu__wrapper-item" [routerLink]="['/infos']" routerLinkActive="router-link-active">Informações</a>
+    <a class="menu__wrapper-item" [routerLink]="['/contato']" routerLinkActive="router-link-active">Contato</a>
+  </div>
 
-  <span class="example-fill-remaining-space"></span>
-
-  <button class="btn-login">Fazer login</button>
-  <button class="btn-register">Cadastrar-se</button>
+  <!-- <span class="example-fill-remaining-space"></span> -->
+  <div class="menu__wrapper">
+    <a class="menu__wrapper btn-login" [routerLink]="['/login']" routerLinkActive="router-link-active">Fazer login</a>
+    <a class="menu__wrapper btn-register" [routerLink]="['/register']" routerLinkActive="router-link-active">Cadastrar-se</a>
+  </div>
 
 </mat-toolbar>

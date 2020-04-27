@@ -7,20 +7,20 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('../modules/pages/home/home.module').then( m => m.HomeModule)
+    loadChildren: () => import('../modules/pages/home/home.module').then(m => m.HomeModule)
   },
-  // {
-  //   path: '/register',
-  //   loadChildren: () => import('../modules/pages/register/register.module').then( m => m.RegisterModule)
-  // },
-  // {
-  //   path: '/login',
-  //   loadChildren: () => import('../modules/pages/login/login.module').then( m => m.LoginModule)
-  // },
+  {
+    path: 'register',
+    loadChildren: () => import('../modules/pages/register/register.module').then( m => m.RegisterModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('../modules/pages/login/login.module').then(m => m.LoginModule)
+  },
 
 
   {
-    path: '**', redirectTo:''
+    path: '**', redirectTo: ''
 
   }
   // {

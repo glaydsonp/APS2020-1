@@ -1,68 +1,78 @@
-@import 'src/scss/angular-components.scss';
+@import "src/scss/angular-components.scss";
 
-.menu{
+.menu {
   position: fixed;
   width: 100%;
   height: 10vh;
-  background-color: #363636 ;
-  box-shadow: 8px 8px 5px -4px rgba(0,0,0,0.50);
+  background-color: #363636;
+  box-shadow: 8px 8px 5px -4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  &-item{
-    padding-left: 10px;
-    padding-right: 10px;
-    display: flex;
+  &__wrapper {
+    height: 100%;
     align-items: center;
-    justify-content: center;
-  }
-  i{
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  span{
-    color:white;
-    &:hover{
-      height: 100%;
+    display: flex;
+
+    .btn-login {
+      border-radius: 5px;
+      height: 5vh;
+      color: grey;
       background-color: white;
-      color: black;
+      border: 1px solid white;
+      padding: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
+
+    .btn-register {
+      border-radius: 5px;
+      height: 5vh;
+      color: white;
+      background-color: #ec5252;
+      border: 1px solid white;
+      padding: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+
+      &:hover {
+        color: black;
+      }
+    }
+    &-item {
+      color: white;
+      padding-left: 10px;
+      padding-right: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: white;
+        color: black;
+        height: 100%;
+        align-items: center;
+        display: flex;
+      }
     }
   }
+
+  // i {
+  //   padding-left: 10px;
+  //   padding-right: 10px;
+  // }
 }
 
-.material-icons{
+.material-icons {
   color: white;
 }
 
-.example-fill-remaining-space {
-  flex: 1 1 auto;
-}
-
-.btn-login{
-  border-radius: 5px;
-  height: 5vh;
-  color: grey;
-  background-color: white;
-  border: 1px solid white;
-  padding: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-
-  &:hover{
-    background-color: white;
-    color: black;
-  }
-}
-
-.btn-register{
-  border-radius: 5px;
-  height: 5vh;
-  color: white;
-  background-color: #ec5252;
-  border: 1px solid white;
-  padding: 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-
-  &:hover{
-    color: black;
-  }
-}
+// .example-fill-remaining-space {
+//   flex: 1 1 auto;
+// }

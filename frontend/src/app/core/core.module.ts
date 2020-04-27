@@ -27,7 +27,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     CoreRoutingModule,
     HttpClientModule,
     ToastrModule.forRoot(),
-    // NgProgressModule,
     SharedModule,
     MatToolbarModule
 

@@ -1,3 +1,4 @@
+import { PagesModule } from './modules/pages/pages.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, LOCALE_ID } from '@angular/core';
@@ -15,7 +16,7 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    CoreModule,
+    CoreModule
   ],
   providers: [{
     provide: LOCALE_ID,

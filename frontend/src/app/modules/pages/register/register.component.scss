@@ -1,0 +1,20 @@
+.container{
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  height: 85vh;
+}
+mat-card{
+  width: 500px;
+  color: white;
+  background-color: #363636;
+  border-radius: 15px;
+  padding: 40px;;
+
+  h1{
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}

@@ -1,3 +1,111 @@
-<p>
-  register works!
-</p>
+<div class="container">
+
+  <mat-card >
+    <h1>Cadastro</h1>
+
+    <form (ngSubmit)="onSubmit(formDirective)"
+          [formGroup]="form" #formDirective="ngForm"
+          onLoad="setFocus()">
+
+    <div>
+
+      <input class="c-input col-md-12"
+            required
+            type="text"
+            name="login"
+            placeholder="Nome completo"
+            formControlName="name">
+
+            <mat-error *ngIf="this.form.get('name').hasError('maxlength')">
+              Máximo de 150 caracteres
+            </mat-error>
+            <mat-error *ngIf="this.form.get('name').hasError('required')">
+              Campo obrigatório
+            </mat-error>
+
+      <hr>
+      <input class="c-input col-md-12"
+      required
+      type="email"
+      name="email"
+      placeholder="Email"
+      formControlName="email">
+
+            <mat-error *ngIf="this.form.get('email').hasError('required')">
+              Campo obrigatório
+            </mat-error>
+
+            <mat-error *ngIf="this.form.get('email').hasError('maxlength')">
+              Máximo de 150 caracteres
+            </mat-error>
+
+
+      <input class="c-input col-md-12"
+      required
+      type="email"
+      name="confirmEmail"
+      placeholder="Confirme o email"
+      formControlName="confirmEmail">
+            <mat-error *ngIf="this.form.get('confirmEmail').hasError('required')">
+              Campo obrigatório
+            </mat-error>
+
+
+      <hr>
+      <input class="c-input col-md-12"
+      required
+      type="text"
+      name="password"
+      placeholder="Senha"
+      formControlName="password">
+
+              <mat-error *ngIf="this.form.get('password').hasError('required')">
+                Campo obrigatório
+              </mat-error>
+
+              <mat-error *ngIf="this.form.get('password').hasError('maxlength')">
+                Máximo de 20 caracteres
+              </mat-error>
+
+              <mat-error *ngIf="this.form.get('password').hasError('minlength')">
+                Mínimo 8 caracteres
+              </mat-error>
+
+              <mat-error *ngIf="this.form.get('password').hasError('pattern')">
+                Senha fora do padrão
+              </mat-error>
+
+      <mat-hint>
+        A senha deve conter ao menos 8 caracteres, uma letra maiuscula, uma minuscula, um número, um simbolo
+      </mat-hint>
+
+      <input class="c-input col-md-12"
+      required
+      type="text"
+      name="confirmPassword"
+      placeholder="Confirme sua senha"
+      formControlName="confirmPassword">
+
+              <mat-error *ngIf="this.form.get('confirmPassword').hasError('required')">
+                Campo obrigatório
+              </mat-error>
+
+              <mat-error *ngIf="this.form.get('confirmPassword').hasError('maxlength')">
+                Máximo de 20 caracteres
+              </mat-error>
+
+              <mat-error *ngIf="this.form.get('confirmPassword').hasError('minlength')">
+                Mínimo 8 caracteres
+              </mat-error>
+
+              <mat-error *ngIf="this.form.get('confirmPassword').hasError('pattern')">
+                Senha fora do padrão
+              </mat-error>
+    </div>
+
+    </form>
+
+  </mat-card>
+
+</div>
+

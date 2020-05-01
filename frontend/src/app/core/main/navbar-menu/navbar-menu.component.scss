@@ -18,13 +18,13 @@
 
     .btn-login {
       border-radius: 5px;
-      height: 5vh;
+      height: 4vh;
       color: grey;
       background-color: white;
-      border: 1px solid white;
       padding: 10px;
       margin-left: 5px;
       margin-right: 5px;
+      text-decoration: none;
 
       &:hover {
         background-color: white;
@@ -34,13 +34,13 @@
 
     .btn-register {
       border-radius: 5px;
-      height: 5vh;
+      height: 4vh;
       color: white;
       background-color: $c-red;
-      border: 1px solid white;
       padding: 10px;
       margin-left: 5px;
       margin-right: 5px;
+      text-decoration: none;
 
       &:hover {
         color: black;

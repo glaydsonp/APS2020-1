@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register.component';
 import { RegisterRoutingModule } from './register-routing.module';
-import { MatCardModule, MatFormFieldModule } from '@angular/material';
+import { MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -11,7 +11,8 @@ import { MatCardModule, MatFormFieldModule } from '@angular/material';
     CommonModule,
     RegisterRoutingModule,
     MatCardModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule
   ],
 
   declarations: [RegisterComponent],

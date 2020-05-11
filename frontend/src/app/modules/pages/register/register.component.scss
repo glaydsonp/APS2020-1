@@ -17,4 +17,31 @@ mat-card{
     margin-bottom: 40px;
     text-align: center;
   }
+
+}
+
+.inputs{
+  mat-hint{
+    color: white;
+    font-size: 14px;
+
+  }
+  mat-label{
+    color: white
+  }
+
+  .inputs-confirm-pass{
+    margin-top: 40px;
+  }
+
+}
+mat-form-field{
+
+  .input{
+    height:40px;
+
+    &::placeholder{
+      color: white;
+    }
+  }
 }

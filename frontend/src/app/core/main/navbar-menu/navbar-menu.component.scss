@@ -11,6 +11,10 @@
   align-items: center;
   justify-content: space-between;
 
+  a{
+    text-decoration: none;
+  }
+
   &__wrapper {
     height: 100%;
     align-items: center;

@@ -8,9 +8,24 @@
   </div>
 
   <!-- <span class="example-fill-remaining-space"></span> -->
-  <div class="menu__wrapper">
-    <a class="menu__wrapper btn-login" [routerLink]="['/login']" routerLinkActive="router-link-active">Fazer login</a>
-    <a class="menu__wrapper btn-register" [routerLink]="['/register']" routerLinkActive="router-link-active">Cadastrar-se</a>
-  </div>
+  <ng-container *ngIf="isAuthenticated$ | async; else userVisitor">
+    <div class="menu__wrapper">
+      <div class="menu__username" *ngIf="session$ | async as session">
+        Bem vindo, {{ session.user.name.split(' ')[0] }}
+      </div>
+      <div class="menu__logout">
+        <button class="btn btn-primary" (click)="logout()">Sair</button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #userVisitor>
+    <div class="menu__wrapper">
+      <a class="menu__wrapper btn-login" [routerLink]="['/login']" routerLinkActive="router-link-active">Fazer login</a>
+      <a class="menu__wrapper btn-register" [routerLink]="['/register']"
+        routerLinkActive="router-link-active">Cadastrar-se</a>
+    </div>
+  </ng-template>
+
 
 </mat-toolbar>

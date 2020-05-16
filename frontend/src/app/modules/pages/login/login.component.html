@@ -8,10 +8,11 @@
 
         <div class="login__wrapper-form">
 
-          <input class="c-input" required type="text" name="login" placeholder="Username" formControlName="email">
+          <input class="c-input" required type="text" name="login" placeholder="Username" formControlName="email"
+            (keyup.enter)="onSubmit(formDirective)" />
 
           <input class="c-input" required type="password" name="password" placeholder="Password"
-            formControlName="password">
+            formControlName="password" (keyup.enter)="onSubmit(formDirective)" />
 
           <button type="submit">Entrar</button>
 

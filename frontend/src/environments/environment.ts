@@ -5,8 +5,9 @@
 export const environment = {
   production: false,
   API_URL: {
-    BASE: 'http://API-LINK.COM/',
-    EXAMPLE: 'EXAMPLE'
+    BASE: 'http://localhost:3333/',
+    USERS: 'users',
+    LOGIN: 'login'
   }
 };
 

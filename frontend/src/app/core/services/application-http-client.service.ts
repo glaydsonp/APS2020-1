@@ -1,3 +1,4 @@
+import { SessionService } from './session.service';
 import { Injectable } from '@angular/core';
 import {
   HttpClient,
@@ -17,6 +18,7 @@ import { ERROR_ROUTE, LOGIN_ROUTE } from '../../app.config';
 import { ToastService } from './toast.service';
 import { MessageType } from '../data/response/messages-type.enum';
 import { isResponse } from '../type-guards/response.type-guard';
+import { ISession } from '../data/api/session/session';
 // import { NgProgress } from 'ngx-progressbar';
 // import { LoadingBarService } from '@ngx-loading-bar/core';
 
@@ -48,14 +50,13 @@ export interface RequestConfig {
   providedIn: 'root'
 })
 export class ApplicationHttpClientService {
-  @LocalStorage('TOKEN')
-  token: Token;
   private baseUrl = environment.API_URL.BASE;
 
   constructor(
     private http: HttpClient,
     private router: Router,
     private toastService: ToastService,
+    private sessionService: SessionService
     // private loadingBarService: NgProgress,
   ) { }
 
@@ -80,7 +81,7 @@ export class ApplicationHttpClientService {
     // tslint:disable-next-line:variable-name
     let _options = options;
 
-    if (_config.auth) {
+    if (_config.auth && this.sessionService.getSession()) {
       _options = this.addAuthorizationHeader(_options);
     }
 
@@ -88,7 +89,7 @@ export class ApplicationHttpClientService {
       // this.loadingBarService.start();
     }
 
-    const requestUrl = this.baseUrl + '/' + backendPath;
+    const requestUrl = this.baseUrl + backendPath;
 
     if (_options.responseType === 'blob') {
       let request: Observable<Blob>;
@@ -212,7 +213,7 @@ export class ApplicationHttpClientService {
     return this.addHeader(
       options,
       'Authorization',
-      `Bearer ${this.token && this.token.accessToken}`
+      `Bearer ${this.sessionService.getSession().token}`
     );
   }
 

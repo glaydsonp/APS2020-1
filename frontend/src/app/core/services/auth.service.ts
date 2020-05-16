@@ -1,3 +1,5 @@
+import { SessionService } from './session.service';
+import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { LocalStorage } from '../helpers/local-storage.decorator';
 import { Token } from '../data/auth/token.interface';
@@ -5,6 +7,7 @@ import { ApplicationHttpClientService } from './application-http-client.service'
 import * as moment from 'moment';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { ISession } from '../data/api/session/session';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +23,7 @@ export class AuthService {
   constructor(
     private api: ApplicationHttpClientService,
     private router: Router,
+    private sessionService: SessionService
   ) { }
 
   /**
@@ -35,26 +39,19 @@ export class AuthService {
   login(userData: {
     email: string;
     password: string;
-  }) {
-    const backenPath = `????`;
-    const body = {
-      AccessKey: userData.email,
-      AccessSecret: userData.password,
-    };
-
-    return this.api.post<Token>(backenPath, body).pipe(
-      tap(  token => this.token = token ),
+  }): void {
+    this.api.post<ISession>(`${environment.API_URL.LOGIN}`, userData, {responseType: 'json'}).subscribe(
+      res => {
+        this.sessionService.applySession(res);
+      }
     );
   }
 
-  /**
-   * - reseta o token na local storage
-   */
-  logout() {
+  logout(): void {
     // to-do: implementar query de redirect opcional para quando usuário deslogar e logar voltar de onde parou
-    this.token = null;
+    // this.token = null;
     // to-do: mudar lógica para recarregar mesma rota
-    this.router.navigateByUrl('/login');
+    // this.router.navigateByUrl('/login');
+    this.sessionService.resetSession();
   }
-
 }

@@ -1,11 +1,10 @@
 .container{
   display: flex;
-  // height: 80vh;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  // height: 85vh;
 }
+
 mat-card{
   width: 500px;
   color: black;
@@ -34,6 +33,35 @@ mat-card{
     margin-top: 40px;
   }
 
+  &_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      width: 150px;
+      height: 40px;
+      padding: 10px 0;
+      border-radius: 30px;
+      color: #363636;
+      font-weight: 500;
+      border: 2px solid black;
+      text-transform: uppercase;
+      cursor: pointer;
+      margin-bottom: 20px;
+      font-family: "Roboto", sans-serif;
+
+      &:hover {
+        background-color: #76323F;
+        color: white;
+        transition: 0.2s;
+        font-size: 1.1em;
+      }
+
+      &:focus {
+        transform: scaleX(1.1);
+      }
+    }
+  }
 }
 mat-form-field{
 

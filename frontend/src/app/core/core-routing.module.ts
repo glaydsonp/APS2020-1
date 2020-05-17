@@ -16,10 +16,12 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('../modules/pages/register/register.module').then(m => m.RegisterModule),
+    canActivate: [OnlyLoggedOffGuard],
   },
   {
     path: 'login',
     loadChildren: () => import('../modules/pages/login/login.module').then(m => m.LoginModule),
+    canActivate: [OnlyLoggedOffGuard],
   },
 
 

@@ -19,7 +19,7 @@ export class OnlyLoggedOffGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     const authenticated = this.authService.isAuthenticated();
-    return authenticated ? this.router.parseUrl('/login') : true;
+    return authenticated ? this.router.navigateByUrl('/') : true;
   }
 
 }

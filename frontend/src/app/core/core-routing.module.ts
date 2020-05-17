@@ -23,6 +23,11 @@ const routes: Routes = [
     loadChildren: () => import('../modules/pages/login/login.module').then(m => m.LoginModule),
     canActivate: [OnlyLoggedOffGuard],
   },
+  {
+    path: 'forgot-password',
+    loadChildren: () => import('../modules/pages/forgotPassword/forgotPassword.module').then(m => m.ForgotPasswordModule),
+    canActivate: [OnlyLoggedOffGuard],
+  },
 
 
   {

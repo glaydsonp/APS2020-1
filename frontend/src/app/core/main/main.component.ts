@@ -50,7 +50,8 @@ export class MainComponent implements OnInit {
 
         const currentRoute = this.router.url;
 
-        if(currentRoute !== '/login' && currentRoute !== '/register' ) {
+        if(currentRoute !== '/login' && currentRoute !== '/register'
+           && currentRoute !== '/forgot-password' ) {
 
           // console.log('Redirecting to login screen...')
 

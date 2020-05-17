@@ -1,3 +1,4 @@
+import { ForgotPasswordModule } from './forgotPassword/forgotPassword.module';
 import { RegisterModule } from './register/register.module';
 import { LoginModule } from './login/login.module';
 import { HomeModule } from './home/home.module';
@@ -9,7 +10,8 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     HomeModule,
     LoginModule,
-    RegisterModule
+    RegisterModule,
+    ForgotPasswordModule
 
   ],
   declarations: [],
@@ -17,6 +19,8 @@ import { CommonModule } from '@angular/common';
     CommonModule,
     HomeModule,
     LoginModule,
-    RegisterModule]
+    RegisterModule,
+    ForgotPasswordModule
+  ]
 })
 export class PagesModule { }

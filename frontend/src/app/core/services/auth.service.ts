@@ -1,3 +1,5 @@
+import { MatSnackBar } from '@angular/material';
+import { HttpErrorResponse } from '@angular/common/http';
 import { SessionService } from './session.service';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
@@ -9,6 +11,7 @@ import { tap, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ISession } from '../data/api/session/session';
 import Swal from 'sweetalert2';
+import { error } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -27,13 +30,19 @@ export class AuthService {
   constructor(
     private api: ApplicationHttpClientService,
     private router: Router,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private snackBar: MatSnackBar
   ) { }
 
   /**
    * - verifica se usuario esta autenticado
    * - usa o local storage para isto
    */
+
+  openSnackBar(message) {
+    this.snackBar.open(message, null, { duration: 3000 });
+  }
+
   isAuthenticated(session = this.sessionService.getSession()) {
     // const now = moment();
     // const expirationDate = this.token ? moment(this.token.expiration) : null;
@@ -80,6 +89,10 @@ export class AuthService {
             this.router.navigate(['/']);
           }
         })
+      },(error: HttpErrorResponse)=>{
+        if(error.status === 400){
+          this.openSnackBar('Email não cadastrado');
+        }
       }
     );
   }

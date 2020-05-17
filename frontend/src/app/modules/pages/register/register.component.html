@@ -3,9 +3,7 @@
   <mat-card >
     <h1>Cadastro</h1>
 
-    <form
-          [formGroup]="form"
-          onLoad="setFocus()">
+    <form [formGroup]="form" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)" onLoad="setFocus()">
 
     <div class="inputs">
       <mat-form-field appearance="fill" class="col-md-12">
@@ -141,7 +139,8 @@
           Senha fora do padrão
         </mat-error>
       </mat-form-field>
-      <button type="submit" (click)="onSubmit()">Registrar</button>
+
+      <button type="submit">Entrar</button>
     </div>
 
 

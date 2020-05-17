@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
+  onSubmit(formDirective: FormGroupDirective): void {
 
       const aName = this.form.get('name').value;
       const aEmail = this.form.get('email').value;
@@ -57,10 +57,10 @@ export class RegisterComponent implements OnInit {
 
       if (this.form.valid) {
 
-        if (aEmail != this.form.get('confirmEmail').value) {
+        if (aEmail !== this.form.get('confirmEmail').value) {
           this.openSnackBar('Os emails devem ser iguais');
-         } else{
-            if (aPassword != this.form.get('confirmPassword').value) {
+         } else {
+            if (aPassword !== this.form.get('confirmPassword').value) {
               this.openSnackBar('As senhas devem ser iguais');
             } else {
 
@@ -70,20 +70,21 @@ export class RegisterComponent implements OnInit {
                 email: aEmail,
                 phoneNumber: aPhoneNumber,
                 password: aPassword
-              }
+              };
 
-              this.request.post('users', this.form.value).subscribe( res => {
-                console.log(res)
+              this.request.post('users',data, { responseType: 'json' }).subscribe( res => {
+                this.openSnackBar('Usuário cadastrado com sucesso');
                 this.form.reset();
+                this.router.navigateByUrl('/')
               },
               (error: HttpErrorResponse) => {
-                console.log(error)
-              })
-
-              console.log(data);
+                console.log(error);
+                if(error.status === 400){
+                  this.openSnackBar('Email ou telefone já cadastrados');
+                }
+              });
             }
          }
-
     } else {
     this.openSnackBar('Informe todos os campos obrigatórios');
     }

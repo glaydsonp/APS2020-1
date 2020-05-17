@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationError, NavigationStart, NavigationEnd, NavigationCancel } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
+import { BnNgIdleService } from 'bn-ng-idle';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -14,7 +16,8 @@ export class MainComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private idleService: BnNgIdleService
   ) {
     this.router.events.subscribe((event) => {
       switch (true) {
@@ -39,6 +42,27 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.idleService.startWatching(5).subscribe((isUserInactive) => {
+
+      if (isUserInactive) {
+
+        console.log('Session expired...');
+
+        const currentRoute = this.router.url;
+
+        if(currentRoute !== '/login' && currentRoute !== '/register' ) {
+
+          console.log('Redirecting to login screen...')
+
+          this.authService.logout();
+          this.idleService.resetTimer();
+
+        }
+
+      }
+
+    });
+
   }
 
 }

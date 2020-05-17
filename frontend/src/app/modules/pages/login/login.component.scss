@@ -1,13 +1,13 @@
 @import "src/scss/angular-components.scss";
 
 .login {
+  padding: 0;
   &__wrapper {
-    height: 90vh;
-    width: 100vw;
+    height: 85vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+
 
     &-box {
       display: flex;
@@ -16,14 +16,13 @@
       justify-content: center;
       width: 450px;
       height: 450px;
-      background: #363636;
+      background: white;
       padding: 60px 30px;
       border-radius: 15px;
       text-align: center;
       -webkit-box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.75);
       box-shadow: 10px 10px 5px -4px rgba(0, 0, 0, 0.5);
-      margin-top: -10%;
     }
 
     &-container {
@@ -35,7 +34,7 @@
       text-transform: uppercase;
       font-size: 2.5em;
       font-weight: 500;
-      color: white;
+      color: black;
       margin-bottom: 30px;
     }
 
@@ -47,15 +46,15 @@
         border-radius: 30px;
         color: #363636;
         font-weight: 500;
-        border: 2px solid white;
+        border: 2px solid black;
         text-transform: uppercase;
         cursor: pointer;
         margin-bottom: 20px;
         font-family: "Roboto", sans-serif;
 
         &:hover {
-          background-color: white;
-          color: black;
+          background-color: #76323F;
+          color: white;
           transition: 0.2s;
           font-size: 1.1em;
         }
@@ -70,7 +69,7 @@
       a {
         text-decoration: none;
         font-size: 13px;
-        color: white;
+        color: black;
         font-family: "Roboto", sans-serif;
 
         &:hover {

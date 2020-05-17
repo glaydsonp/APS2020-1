@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SessionService } from 'src/app/core/services/session.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
   onSubmit(formDirective: FormGroupDirective): void {
 
     if (this.form.valid) {
+
       this.authService
         .login(
           this.form.value as { email: string, password: string }

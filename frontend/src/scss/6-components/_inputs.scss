@@ -10,20 +10,20 @@
   background: transparent;
   border: none;
   outline: none;
-  border: 2px solid white;
+  border: 2px solid black;
   font-size: 13px;
   height: 40px;
   text-align: center;
   transition: 0.27s;
-  color: white;
+  color: black;
 
   &:focus {
     width: 80%;
-    border-color: white;
+    border-color: blue;
     font-family: $f-font-sans-serif;
   }
   &::placeholder {
     font-family: $f-font-sans-serif;
-    color: white;
+    color: black;
   }
 }

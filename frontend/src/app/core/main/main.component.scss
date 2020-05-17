@@ -2,15 +2,12 @@
   top: 0;
   left: 0;
   // position: relative;
+  overflow: auto;
   height: 100vh;
   width: 100vw;
   background-color: #76323F;
 
   &__container {
-    // height: 85%;
-    // margin-top: 100px;
-    // padding-bottom: 5vh;
-    // overflow: auto;
     position: relative;
     padding-top: 10vh;
     padding-bottom: 8vh;

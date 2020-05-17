@@ -46,13 +46,13 @@ export class MainComponent implements OnInit {
 
       if (isUserInactive) {
 
-        console.log('Session expired...');
+        // console.log('Session expired...');
 
         const currentRoute = this.router.url;
 
         if(currentRoute !== '/login' && currentRoute !== '/register' ) {
 
-          console.log('Redirecting to login screen...')
+          // console.log('Redirecting to login screen...')
 
           this.authService.logout();
           this.idleService.resetTimer();

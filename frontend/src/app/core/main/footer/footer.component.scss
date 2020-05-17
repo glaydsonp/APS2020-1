@@ -8,10 +8,12 @@
   bottom: 0;
   height: 5vh;
   max-height: 50px;
-  background-color: #363636;
+  background-color: white;
   box-shadow: -4px -9px 20px -5px rgba(0, 0, 0, 0.5);
 
+
   p {
-    color: white;
+    color: black;
+    margin: 0;
   }
 }

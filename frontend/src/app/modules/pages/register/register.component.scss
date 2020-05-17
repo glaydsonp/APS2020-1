@@ -1,15 +1,15 @@
 .container{
   display: flex;
-  height: 80vh;
+  // height: 80vh;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  height: 85vh;
+  // height: 85vh;
 }
 mat-card{
   width: 500px;
-  color: white;
-  background-color: #363636;
+  color: black;
+  background-color: white;
   border-radius: 15px;
   padding: 40px;;
 
@@ -22,12 +22,12 @@ mat-card{
 
 .inputs{
   mat-hint{
-    color: white;
+    color: black;
     font-size: 14px;
 
   }
   mat-label{
-    color: white
+    color: black
   }
 
   .inputs-confirm-pass{
@@ -40,8 +40,10 @@ mat-form-field{
   .input{
     height:40px;
 
+
+
     &::placeholder{
-      color: white;
+      color: black;
     }
   }
 }

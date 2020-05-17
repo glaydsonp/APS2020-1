@@ -1,8 +1,8 @@
-import { Router } from 'express';
+import { Router } from '@angular/router';
+
 import { MatSnackBar } from '@angular/material';
 import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { ToastrComponentlessModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-forgotPassword',
@@ -14,7 +14,8 @@ export class ForgotPasswordComponent implements OnInit {
   form: FormGroup;
 
   constructor(private formBuilder: FormBuilder,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar,
+              private router: Router) { }
 
   ngOnInit() {
     this.create();
@@ -44,7 +45,8 @@ export class ForgotPasswordComponent implements OnInit {
       if(aEmail !== aConfirmEmail){
         this.openSnackBar('Os emails devem ser iguais');
       }else{
-        console.log("teste" + this.form.value)
+        console.log("teste" + this.form.value);
+        this.router.navigateByUrl('/')
       }
     }
   }

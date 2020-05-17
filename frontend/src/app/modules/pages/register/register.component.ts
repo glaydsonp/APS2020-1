@@ -1,3 +1,5 @@
+import { ApplicationHttpClientService } from './../../../core/services/application-http-client.service';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroupDirective, FormGroup } from '@angular/forms';
@@ -14,7 +16,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private snackBar: MatSnackBar,
-              private router: Router) { }
+              private router: Router,
+              private request: ApplicationHttpClientService) { }
 
   ngOnInit() {
     this.create();
@@ -30,6 +33,7 @@ export class RegisterComponent implements OnInit {
       name: [null, [Validators.required, Validators.maxLength(150)]],
       email: [null, [Validators.required, Validators.maxLength(150)]],
       confirmEmail: [null, [Validators.required, Validators.maxLength(150)]],
+      phoneNumber: [null, [Validators.required, Validators.minLength(11), Validators.maxLength(11) ]],
       password: [null, [Validators.required,
                         Validators.maxLength(20),
                         Validators.minLength(8),
@@ -37,22 +41,48 @@ export class RegisterComponent implements OnInit {
                           /^(?=.*[A-Z])(?=.*['!\{@\}#\$%\^&\*,+./\_()\[¨\]=\-])(?=.*[0-9])(?=.*[a-z]).*$/)
                         ]
                       ],
-      confirmPassword: [null, [Validators.required,
-                        Validators.maxLength(20),
-                        Validators.minLength(8),
-                        Validators.pattern(
-                          /^(?=.*[A-Z])(?=.*['!\{@\}#\$%\^&\*,+./\_()\[¨\]=\-])(?=.*[0-9])(?=.*[a-z]).*$/)
-                        ]
-                      ],
+      confirmPassword: [null]
 
     });
   }
 
-  onSubmit(formDirective: FormGroupDirective): void {
+  onSubmit(): void {
 
-    if (this.form.valid) {
+      const aName = this.form.get('name').value;
+      const aEmail = this.form.get('email').value;
+      const aPhoneNumber = this.form.get('phoneNumber').value;
+      const aPassword = this.form.get('password').value;
 
-    console.log(JSON.stringify(this.form.value));
+
+
+      if (this.form.valid) {
+
+        if (aEmail != this.form.get('confirmEmail').value) {
+          this.openSnackBar('Os emails devem ser iguais');
+         } else{
+            if (aPassword != this.form.get('confirmPassword').value) {
+              this.openSnackBar('As senhas devem ser iguais');
+            } else {
+
+
+              const data = {
+                name: aName,
+                email: aEmail,
+                phoneNumber: aPhoneNumber,
+                password: aPassword
+              }
+
+              this.request.post('users', this.form.value).subscribe( res => {
+                console.log(res)
+                this.form.reset();
+              },
+              (error: HttpErrorResponse) => {
+                console.log(error)
+              })
+
+              console.log(data);
+            }
+         }
 
     } else {
     this.openSnackBar('Informe todos os campos obrigatórios');

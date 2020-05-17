@@ -3,8 +3,8 @@
   <mat-card >
     <h1>Cadastro</h1>
 
-    <form (ngSubmit)="onSubmit(formDirective)"
-          [formGroup]="form" #formDirective="ngForm"
+    <form
+          [formGroup]="form"
           onLoad="setFocus()">
 
     <div class="inputs">
@@ -63,6 +63,28 @@
       </mat-form-field >
 
       <mat-form-field appearance="fill" class="col-md-12">
+        <mat-label>Telefone</mat-label>
+        <input class="input "
+        required
+        type="text"
+        name="phoneNumber"
+        matInput
+        placeholder="Telefone com DD"
+        formControlName="phoneNumber">
+
+        <mat-error *ngIf="this.form.get('phoneNumber').hasError('maxlength')">
+        Máximo de 11 números
+        </mat-error>
+        <mat-error *ngIf="this.form.get('phoneNumber').hasError('minlength')">
+          Mínimo  de 11 números
+        </mat-error>
+        <mat-error *ngIf="this.form.get('phoneNumber').hasError('required')">
+        Campo obrigatório
+        </mat-error>
+
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="col-md-12">
         <mat-label>Senha</mat-label>
         <input class="input"
         required
@@ -119,7 +141,9 @@
           Senha fora do padrão
         </mat-error>
       </mat-form-field>
+      <button type="submit" (click)="onSubmit()">Registrar</button>
     </div>
+
 
     </form>
 

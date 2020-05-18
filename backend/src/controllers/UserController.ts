@@ -16,13 +16,13 @@ class UserController {
         // checa se o email já existe
         const checkEmail = await User.find({ email })
         if (checkEmail && checkEmail.length > 0) {
-            return res.status(400).json({ message: 'Email already exists.' })
+            return res.status(400).json({ description: 'Email already exists.' })
         }
 
         // checa se o telefone já existe
         const checkPhoneNumber = await User.find({ phoneNumber })
         if (checkPhoneNumber && checkPhoneNumber.length > 0) {
-            return res.status(400).json({ message: 'Phone number already exists.' })
+            return res.status(400).json({ description: 'Phone number already exists.' })
         }
 
         // pega a senha e converte em hash
@@ -54,7 +54,7 @@ class UserController {
         } else {
             // se não persistiu, retorna erro
             return res.status(400).json({
-                message: 'Error on user create.'
+                description: 'Error on user create.'
             })
         }
 

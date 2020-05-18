@@ -54,47 +54,58 @@ export class AuthService {
     email: string;
     password: string;
   }): void {
-    this.api.post<ISession>(`${environment.API_URL.LOGIN}`, userData, { responseType: 'json' }).subscribe(
+    this.api.post(`${environment.API_URL.TFA}`, { email: userData.email }, { responseType: 'json' }).subscribe(
       res => {
-
-        Swal.fire({
-          title: 'Coloque o código enviado por email:',
-          input: 'text',
-          inputAttributes: {
-            autocapitalize: 'off'
-          },
-          showCancelButton: true,
-          cancelButtonText: 'Cancelar',
-          confirmButtonText: 'Confirmar',
-          showLoaderOnConfirm: true,
-          preConfirm: (login) => {
-            return fetch(`//api.github.com/users/${login}`)
-              .then(response => {
-                if (!response.ok) {
-                  throw new Error(response.statusText)
-                }
-                return response.json()
-              })
-              .catch(error => {
-                Swal.showValidationMessage(
-                  // `Request failed: ${error}`
-                  `Código inválido`
-                )
-              })
-          },
-          allowOutsideClick: () => !Swal.isLoading()
-        }).then((result) => {
-          if (result.value) {
-            this.sessionService.applySession(res);
-            this.router.navigate(['/']);
-          }
-        })
-      },(error: HttpErrorResponse)=>{
-        if(error.status === 400){
-          this.openSnackBar('Email não cadastrado');
-        }
+        console.log('sucesso');
+      }, err => {
+        console.log('erro');
       }
     );
+
+    Swal.fire({
+      title: 'Coloque o código enviado por email:',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Confirmar',
+      showLoaderOnConfirm: true,
+      preConfirm: (codigo) => {
+        // tslint:disable-next-line: max-line-length
+        return this.api.post<ISession>(`${environment.API_URL.LOGIN}`, { ...userData, codigo: parseInt(codigo, 10) }, { responseType: 'json' }).toPromise().then(
+          res => {
+            this.sessionService.applySession(res);
+            this.router.navigate(['/']);
+          }).catch(
+            (err: HttpErrorResponse) => {
+              if (err.status === 400) {
+                this.openSnackBar('Email não cadastrado');
+              }
+            });
+        // return fetch(`//api.github.com/users/${login}`)
+        //   .then(response => {
+        //     if (!response.ok) {
+        //       throw new Error(response.statusText);
+        //     }
+        //     return response.json();
+        //   })
+        //   .catch(err => {
+        //     console.log(err);
+        //     Swal.showValidationMessage(
+        //       // `Request failed: ${error}`
+        //       `Código inválido`
+        //     );
+        //   });
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+      if (result.value) {
+
+      }
+    });
+
   }
 
   logout(): void {

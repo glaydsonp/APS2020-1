@@ -5,9 +5,10 @@
 export const environment = {
   production: false,
   API_URL: {
-    BASE: 'http://localhost:3333/',
+    BASE: 'http://localhost:3000/',
     USERS: 'users',
-    LOGIN: 'login'
+    LOGIN: 'login',
+    TFA: 'tfa'
   }
 };
 

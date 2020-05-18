@@ -5,6 +5,13 @@ export default async (req, res, next) => {
     res.send = (data) => {
         let response = {};
 
+
+        //         data: null
+        // description: "Usuário ou senha inválidos!"
+        // descriptionType: "Error"
+        // stackTrace: null
+        // type: 4
+
         if (res.statusCode === 200) {
             response = {
                 isSucceed: true,
@@ -12,13 +19,17 @@ export default async (req, res, next) => {
                 messages: null
             }
         } else if (res.statusCode === 400) {
+            res.statusCode = 200;
             response = {
                 isSucceed: false,
                 data: null,
                 messages: [
                     {
                         ...JSON.parse(data),
-                        type: MessageType.error
+                        type: MessageType.error,
+                        data: null,
+                        descriptionType: 'Error',
+                        stackTrace: null
                     }
                 ]
             }

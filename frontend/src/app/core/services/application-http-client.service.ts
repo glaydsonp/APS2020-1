@@ -179,9 +179,18 @@ export class ApplicationHttpClientService {
 
   private responseErrorHandler(config: RequestConfig) {
     return catchError((err: any) => {
+
+      // console.log('config.backendNotification ', config.backendNotifications);
+      // console.log('err instanceof HttpErrorResponse ', err instanceof HttpErrorResponse);
+      // console.log('isResponse(err.error)', isResponse(err.error));
+      // console.log('err.error', err.error);
+      // console.log(`err.error['messages']`, err.error['messages']);
+
       let responseErrorMessageToasted = false;
       // tslint:disable-next-line:no-string-literal max-line-length
       if (config.backendNotifications && err instanceof HttpErrorResponse && isResponse(err.error) && err.error && err.error['messages']) {
+        // tslint:disable-next-line:no-string-literal
+        console.log(err.error['messages']);
         // tslint:disable-next-line:no-string-literal
         this.toastService.toast(err.error['messages']);
         responseErrorMessageToasted = true;
@@ -203,7 +212,7 @@ export class ApplicationHttpClientService {
           { description: `Erro ao se conectar com o servidor. Código: ${err.status}`, type: MessageType.error });
       }
 
-      console.log({ err, from: this });
+      // console.log({ err, from: this });
 
       return throwError(err);
     });

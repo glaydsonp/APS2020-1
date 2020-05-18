@@ -42,7 +42,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.idleService.startWatching(5).subscribe((isUserInactive) => {
+    this.idleService.startWatching(30).subscribe((isUserInactive) => {
 
       if (isUserInactive) {
 

@@ -56,9 +56,10 @@ export class AuthService {
   }): void {
     this.api.post(`${environment.API_URL.TFA}`, { email: userData.email }, { responseType: 'json' }).subscribe(
       res => {
-        console.log('sucesso');
+        // console.log('sucesso');
       }, err => {
-        console.log('erro');
+        // console.log('erro');
+        return;
       }
     );
 

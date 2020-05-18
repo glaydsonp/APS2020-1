@@ -1,0 +1,19 @@
+.main{
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://codetheweb.blog/assets/img/posts/css-advanced-background-images/mountains.jpg");
+    background-size: 100%;;
+
+    h1{
+      width: 50%;
+      text-align: center;
+      color: white;
+      font-size: 6em;
+    }
+}

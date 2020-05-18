@@ -8,7 +8,7 @@ export const SendEmail = async (email: string) => {
 
     const checkTFA = await TFA.findOne({ email });
     if (checkTFA) {
-        await checkTFA.update({ codigo });
+        await checkTFA.updateOne({ codigo });
     } else {
         await TFA.create({ email, codigo });
     }

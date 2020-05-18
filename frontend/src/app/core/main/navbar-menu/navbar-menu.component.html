@@ -11,7 +11,7 @@
   <ng-container *ngIf="isAuthenticated$ | async; else userVisitor">
     <div class="menu__wrapper">
       <div class="menu__username" *ngIf="session$ | async as session">
-        Bem vindo, {{ session.user.name.split(' ')[0] }}
+        Bem vindo(a), {{ session.user.name.split(' ')[0] }}
       </div>
       <div class="menu__logout">
         <button class="btn btn-primary" (click)="logout()">Sair</button>

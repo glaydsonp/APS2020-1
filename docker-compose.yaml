@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  backend:
+    build: ./backend/dist/
+    ports:
+      - 4201:3000
+
+  frontend:
+    build: ./frontend/
+    ports:
+      - 4202:80

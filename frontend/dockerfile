@@ -1,0 +1,36 @@
+##### STAGE 1
+
+FROM node:10-alpine as node
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install --loglevel=error
+
+ARG env=prod
+
+# comando de build para ambiente de PROD
+# RUN npm run build:prod
+
+# comando de build para ambiente de QA
+RUN npm run build:prod
+
+##### STAGE 2
+
+FROM nginx:1.15.2-alpine
+
+# Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy app dist to nginx
+COPY --from=node app/dist /usr/share/nginx/html
+
+# Copy default nginx config
+COPY nginx/default.conf /etc/nginx/conf.d/
+
+EXPOSE 80 443
+
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
+
+#bash location /bin/sh
